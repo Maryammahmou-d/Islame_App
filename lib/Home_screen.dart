@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:islame_app/themeing.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = "Home Screen";
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +30,42 @@ class HomeScreen extends StatelessWidget {
           body: Column(
             children: [],
           ),
+          bottomNavigationBar: BottomNavigationBar(
+              currentIndex: currentIndex,
+              onTap: (index) {
+                currentIndex = index;
+                setState(() {});
+              },
+              items: [
+                BottomNavigationBarItem(
+                    backgroundColor: MyThemeData.GoldColor,
+                    icon: ImageIcon(
+                      AssetImage('assets/icon_images/icon_radio.png'),
+                      size: 30,
+                    ),
+                    label: "Radio"),
+                BottomNavigationBarItem(
+                    backgroundColor: MyThemeData.GoldColor,
+                    icon: ImageIcon(
+                      AssetImage('assets/icon_images/icon_sebha.png'),
+                      size: 30,
+                    ),
+                    label: "Sebha"),
+                BottomNavigationBarItem(
+                    backgroundColor: MyThemeData.GoldColor,
+                    icon: ImageIcon(
+                      AssetImage('assets/icon_images/icon_hadeth.png'),
+                      size: 30,
+                    ),
+                    label: "Hadeth"),
+                BottomNavigationBarItem(
+                    backgroundColor: MyThemeData.GoldColor,
+                    icon: ImageIcon(
+                      AssetImage('assets/icon_images/icon_quran.png'),
+                      size: 30,
+                    ),
+                    label: "Quran"),
+              ]),
         ),
       ],
     );
