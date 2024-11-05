@@ -6,17 +6,22 @@ class MyThemeData {
 
   static ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
-      appBarTheme: AppBarTheme(
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-      ),
-      textTheme: TextTheme(
-        headlineSmall: TextStyle(fontSize: 20, color: BlackColor),
-        titleMedium: TextStyle(
-            fontSize: 30, fontWeight: FontWeight.bold, color: BlackColor),
-        titleLarge: TextStyle(fontSize: 35, color: BlackColor),
-      ));
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      elevation: 0.0,
+      backgroundColor: Colors.transparent,
+    ),
+    textTheme: TextTheme(
+      headlineSmall: TextStyle(fontSize: 20, color: BlackColor),
+      titleMedium: TextStyle(
+          fontSize: 30, fontWeight: FontWeight.bold, color: BlackColor),
+      titleLarge: TextStyle(fontSize: 35, color: BlackColor),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedItemColor: BlackColor,
+      unselectedItemColor: Colors.white,
+    ),
+  );
 
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
