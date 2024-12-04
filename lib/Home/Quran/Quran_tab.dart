@@ -142,7 +142,7 @@ class QuranTab extends StatelessWidget {
                   separatorBuilder: (_, index) => DividerItemStayle(),
                   itemCount: SuraNames.length,
                   itemBuilder: (_, index) {
-                    return SuraNameItem(SuraNames[index]);
+                    return SuraNameItem(SuraNames[index], index);
                   })),
         ],
       ),
