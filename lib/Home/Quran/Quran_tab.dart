@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Quran/sura_name_item.dart';
 import 'package:islame_app/themeing.dart';
 
+import 'divider_item_stayle.dart';
+
 class QuranTab extends StatelessWidget {
   List<String> SuraNames = [
     "الفاتحه",
@@ -137,12 +139,7 @@ class QuranTab extends StatelessWidget {
           ),
           Expanded(
               child: ListView.separated(
-                  separatorBuilder: (_, index) => Divider(
-                        color: MyThemeData.GoldColor,
-                        thickness: 4,
-                        endIndent: 25,
-                        indent: 25,
-                      ),
+                  separatorBuilder: (_, index) => DividerItemStayle(),
                   itemCount: SuraNames.length,
                   itemBuilder: (_, index) {
                     return SuraNameItem(SuraNames[index]);
