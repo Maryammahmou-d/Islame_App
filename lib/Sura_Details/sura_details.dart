@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:islame_app/themeing.dart';
-
+import 'package:flutter/services.dart';
+import 'package:islame_app/Data%20Model/sura_details_arg.dart';
 import '../Home/Quran/divider_item_stayle.dart';
 
-class SuraDetailsScreen extends StatelessWidget {
-  const SuraDetailsScreen({super.key});
-
+class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "Sura_details";
 
   @override
+  State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
+}
+
+class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
+  List<String> ayaat = [];
+
+  @override
   Widget build(BuildContext context) {
-    String? SuraName = ModalRoute.of(context)?.settings.arguments.toString();
+    SuraDetailsArg SuraDetails =
+        ModalRoute.of(context)?.settings.arguments as SuraDetailsArg;
+    if (ayaat.isEmpty) {
+      LoadFile(SuraDetails.index);
+    }
     return Stack(
       children: [
         Image.asset(
@@ -27,24 +36,48 @@ class SuraDetailsScreen extends StatelessWidget {
             ),
             body: Center(
               child: Container(
+                padding: EdgeInsets.all(10),
                 width: 350,
                 height: 600,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(80),
+                  borderRadius: BorderRadius.circular(60),
                   color: Color.fromRGBO(255, 255, 255, 150),
                 ),
                 child: Column(
                   children: [
                     Text(
-                      "Sura ${SuraName}",
+                      "Sura ${SuraDetails.SuraName}",
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     DividerItemStayle(),
+                    Expanded(
+                        child: ayaat.length == 0
+                            ? Center(child: CircularProgressIndicator())
+                            : ListView.builder(
+                                itemCount: ayaat.length,
+                                itemBuilder: (_, index) {
+                                  return Text(
+                                    "${ayaat[index]}",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleSmall
+                                        ?.copyWith(fontSize: 20),
+                                    textAlign: TextAlign.right,
+                                  );
+                                }))
                   ],
                 ),
               ),
             ))
       ],
     );
+  }
+
+  void LoadFile(int index) async {
+    String SuraContent =
+        await rootBundle.loadString("assets/files/${index + 1}.txt");
+    List<String> lines = SuraContent.split("\n");
+    ayaat = lines;
+    setState(() {});
   }
 }
