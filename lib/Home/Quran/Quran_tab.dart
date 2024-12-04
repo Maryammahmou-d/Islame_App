@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islame_app/Home/Quran/sura_name_item.dart';
+import 'package:islame_app/themeing.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> SuraNames = [
@@ -126,14 +128,25 @@ class QuranTab extends StatelessWidget {
       child: Column(
         children: [
           Image.asset("assets/images/qur2an_screen_logo.png"),
+          Text(
+            "Sura Names",
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(color: MyThemeData.GoldColor),
+          ),
           Expanded(
-            child: ListView.builder(
-                itemCount: SuraNames.length,
-                itemBuilder: (_, index) {
-                  return Text(SuraNames[index],
-                      style: Theme.of(context).textTheme.titleMedium);
-                }),
-          )
+              child: ListView.separated(
+                  separatorBuilder: (_, index) => Divider(
+                        color: MyThemeData.GoldColor,
+                        thickness: 4,
+                        endIndent: 25,
+                        indent: 25,
+                      ),
+                  itemCount: SuraNames.length,
+                  itemBuilder: (_, index) {
+                    return SuraNameItem(SuraNames[index]);
+                  })),
         ],
       ),
     );
