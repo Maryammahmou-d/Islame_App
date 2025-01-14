@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islame_app/Data%20Model/sura_details_arg.dart';
+import 'package:islame_app/themeing.dart';
 import '../Home/Quran/divider_item_stayle.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
@@ -37,11 +38,11 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
             body: Center(
               child: Container(
                 padding: EdgeInsets.all(10),
-                width: 350,
-                height: 600,
+                margin: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                 decoration: BoxDecoration(
+                  border: Border.all(color: MyThemeData.GoldColor, width: 2),
                   borderRadius: BorderRadius.circular(60),
-                  color: Color.fromRGBO(255, 255, 255, 150),
+                  color: Color.fromRGBO(255, 255, 255, 100),
                 ),
                 child: Column(
                   children: [

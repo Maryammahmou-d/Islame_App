@@ -61,6 +61,45 @@ class _SabhaTabState extends State<SabhaTab> {
             "${sebha[index]}",
             style: Theme.of(context).textTheme.titleMedium,
           ),
+          SizedBox.fromSize(size: Size(0, 20)),
+          Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: MyThemeData.GoldColor),
+                color: Color.fromRGBO(255, 255, 255, 100),
+                borderRadius: BorderRadius.circular(20)),
+            child: DropdownButton(
+                hint: Text("الاذكار"),
+                alignment: Alignment.center,
+                borderRadius: BorderRadius.circular(40),
+                style: Theme.of(context).textTheme.titleSmall,
+                items: [
+                  DropdownMenuItem(
+                    child: Text("الله اكبر"),
+                    value: 0,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("سبحان الله"),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("استغفر الله"),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("لا اله الا الله"),
+                    value: 3,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("الحمد الله"),
+                    value: 4,
+                  ),
+                ],
+                onChanged: (value) {
+                  index = value!;
+                  Counter = 0;
+                  setState(() {});
+                }),
+          )
         ],
       ),
     );
