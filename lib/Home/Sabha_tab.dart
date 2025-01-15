@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islame_app/themeing.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SabhaTab extends StatefulWidget {
   @override
@@ -39,7 +39,7 @@ class _SabhaTabState extends State<SabhaTab> {
               child: Image.asset("assets/images/sebha_icon.png")),
           SizedBox.fromSize(size: Size(0, 50)),
           Text(
-            "عدد التسبيحات ",
+            AppLocalizations.of(context)!.sebha_num,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox.fromSize(size: Size(0, 20)),

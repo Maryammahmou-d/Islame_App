@@ -4,6 +4,8 @@ import 'package:islame_app/themeing.dart';
 import '../Quran/divider_item_stayle.dart';
 import 'Ahadeth_tab.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HadethDetails extends StatelessWidget {
   static const String routeName = "hadeth details";
 
@@ -21,7 +23,7 @@ class HadethDetails extends StatelessWidget {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              "Islami",
+              AppLocalizations.of(context)!.appTitle,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),

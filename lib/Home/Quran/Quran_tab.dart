@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Quran/sura_name_item.dart';
 import 'package:islame_app/themeing.dart';
-
 import 'divider_item_stayle.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> SuraNames = [
@@ -131,7 +131,7 @@ class QuranTab extends StatelessWidget {
         children: [
           Image.asset("assets/images/qur2an_screen_logo.png"),
           Text(
-            "Sura Names",
+            AppLocalizations.of(context)!.sura_name,
             style: Theme.of(context)
                 .textTheme
                 .titleMedium
