@@ -16,10 +16,10 @@ class MyThemeData {
     ),
     textTheme: TextTheme(
       titleSmall: TextStyle(
-          fontSize: 25, color: BlackColor, fontWeight: FontWeight.bold),
+          fontSize: 20, color: BlackColor, fontWeight: FontWeight.bold),
       titleMedium: TextStyle(
-          fontSize: 30, fontWeight: FontWeight.bold, color: BlackColor),
-      titleLarge: TextStyle(fontSize: 35, color: BlackColor),
+          fontSize: 25, fontWeight: FontWeight.bold, color: BlackColor),
+      titleLarge: TextStyle(fontSize: 30, color: BlackColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: BlackColor,
