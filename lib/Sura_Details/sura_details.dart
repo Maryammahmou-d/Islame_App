@@ -4,6 +4,8 @@ import 'package:islame_app/Data%20Model/sura_details_arg.dart';
 import 'package:islame_app/themeing.dart';
 import '../Home/Quran/divider_item_stayle.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "Sura_details";
 
@@ -31,7 +33,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         Scaffold(
             appBar: AppBar(
               title: Text(
-                "Islami",
+                AppLocalizations.of(context)!.appTitle,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
@@ -47,7 +49,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                 child: Column(
                   children: [
                     Text(
-                      "Sura ${SuraDetails.SuraName}",
+                      "${AppLocalizations.of(context)!.sura}${SuraDetails.SuraName}",
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     DividerItemStayle(),

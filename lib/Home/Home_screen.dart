@@ -5,6 +5,8 @@ import 'package:islame_app/Home/Radio_tab.dart';
 import 'package:islame_app/Home/Sabha_tab.dart';
 import 'package:islame_app/themeing.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HomeScreen extends StatefulWidget {
   static const String routeName = "Home Screen";
 
@@ -33,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              "Islami",
+              AppLocalizations.of(context)!.appTitle,
               style: Theme.of(context).textTheme.titleMedium,
             ), //Shadow
           ),
