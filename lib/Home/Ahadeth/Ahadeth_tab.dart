@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islame_app/themeing.dart';
 import '../Quran/divider_item_stayle.dart';
-import 'hadeth_detail_arg.dart';
 import 'hadeth_details.dart';
 
 class AhadethTab extends StatefulWidget {
@@ -40,8 +39,7 @@ class _AhadethTabState extends State<AhadethTab> {
                           Navigator.pushNamed(
                             context,
                             HadethDetails.routeName,
-                            arguments: HadethDetailsArg(
-                                Ahadeth[index].title, Ahadeth[index].content),
+                            arguments: Ahadeth[index],
                           );
                         },
                         child: Text(

@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islame_app/themeing.dart';
-
 import '../Quran/divider_item_stayle.dart';
-import 'hadeth_detail_arg.dart';
+import 'Ahadeth_tab.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = "hadeth details";
 
   @override
   Widget build(BuildContext context) {
-    HadethDetailsArg hadethDetails =
-        ModalRoute.of(context)?.settings.arguments as HadethDetailsArg;
+    var hadethDetails =
+        ModalRoute.of(context)?.settings.arguments as HadethData;
     return Stack(
       children: [
         Image.asset(
@@ -48,10 +47,10 @@ class HadethDetails extends StatelessWidget {
                   DividerItemStayle(),
                   Expanded(
                     child: ListView.builder(
-                        itemCount: hadethDetails.hadethContent.length,
+                        itemCount: hadethDetails.content.length,
                         itemBuilder: (_, index) {
                           return Text(
-                            hadethDetails.hadethContent[index],
+                            hadethDetails.content[index],
                             style: Theme.of(context).textTheme.titleSmall,
                             textAlign: TextAlign.right,
                           );
