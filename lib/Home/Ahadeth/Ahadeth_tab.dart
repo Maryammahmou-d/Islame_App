@@ -4,6 +4,8 @@ import 'package:islame_app/themeing.dart';
 import '../Quran/divider_item_stayle.dart';
 import 'hadeth_details.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AhadethTab extends StatefulWidget {
   @override
   State<AhadethTab> createState() => _AhadethTabState();
@@ -20,7 +22,7 @@ class _AhadethTabState extends State<AhadethTab> {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       Center(child: Image.asset("assets/images/hadeth_logo.png")),
       Text(
-        "Hadeth Name",
+        AppLocalizations.of(context)!.hadeth_name,
         style: Theme.of(context)
             .textTheme
             .titleMedium
