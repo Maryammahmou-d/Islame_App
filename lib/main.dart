@@ -28,6 +28,7 @@ class IslameApp extends StatelessWidget {
         Locale('en'), // English
         Locale('ar'), // arabic
       ],
+      /*ocale: Locale("ar"),*/
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {

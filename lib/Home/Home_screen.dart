@@ -53,28 +53,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       AssetImage('assets/icon_images/icon_radio.png'),
                       size: 30,
                     ),
-                    label: "Radio"),
+                    label: AppLocalizations.of(context)!.radio_nav),
                 BottomNavigationBarItem(
                     backgroundColor: MyThemeData.GoldColor,
                     icon: ImageIcon(
                       AssetImage('assets/icon_images/icon_sebha.png'),
                       size: 30,
                     ),
-                    label: "Sebha"),
+                    label: AppLocalizations.of(context)!.sebha_nav),
                 BottomNavigationBarItem(
                     backgroundColor: MyThemeData.GoldColor,
                     icon: ImageIcon(
                       AssetImage('assets/icon_images/icon_hadeth.png'),
                       size: 30,
                     ),
-                    label: "Hadeth"),
+                    label: AppLocalizations.of(context)!.ahadeth_nav),
                 BottomNavigationBarItem(
                     backgroundColor: MyThemeData.GoldColor,
                     icon: ImageIcon(
                       AssetImage('assets/icon_images/icon_quran.png'),
                       size: 30,
                     ),
-                    label: "Quran"),
+                    label: AppLocalizations.of(context)!.quran_nav),
               ]),
         ),
       ],

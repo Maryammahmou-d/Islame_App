@@ -4,5 +4,9 @@
   "hadeth_name": "الاحاديث",
   "sura": "صورة",
   "sebha_num": "عدد التسبيحات",
-  "quran_radio": "اذاعة القرآن الكريم"
+  "quran_radio": "اذاعة القرآن الكريم",
+  "radio_nav": "راديو",
+  "quran_nav": "قرآن",
+  "sebha_nav": "سبحة",
+  "ahadeth_nav": "احاديث"
 }

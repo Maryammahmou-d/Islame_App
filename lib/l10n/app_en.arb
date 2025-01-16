@@ -4,5 +4,9 @@
   "hadeth_name": "Ahadeth",
   "sura": "Sura",
   "sebha_num": "Numbers of Tasbeh",
-  "quran_radio": "Quran Radio"
+  "quran_radio": "Quran Radio",
+  "radio_nav": "Radio",
+  "quran_nav": "Quran",
+  "sebha_nav": "Sebha",
+  "ahadeth_nav": "Ahadeth"
 }
