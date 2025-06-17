@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Home_screen.dart';
 import 'package:islame_app/Sura_Details/sura_details.dart';
 import 'package:islame_app/themeing.dart';
-
 import 'Home/Ahadeth/hadeth_details.dart';
-
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -17,7 +15,6 @@ class IslameApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      title: 'Localizations Sample App',
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
