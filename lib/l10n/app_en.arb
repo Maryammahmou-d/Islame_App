@@ -8,5 +8,8 @@
   "radio_nav": "Radio",
   "quran_nav": "Quran",
   "sebha_nav": "Sebha",
-  "ahadeth_nav": "Ahadeth"
+  "ahadeth_nav": "Ahadeth",
+  "settings_nav": "Setting",
+  "language": "Language",
+  "mode": "Mode"
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islame_app/themeing.dart';
+import 'package:islame_app/Themeing/Themeing.dart';
 import '../Quran/divider_item_stayle.dart';
 import 'Ahadeth_tab.dart';
 

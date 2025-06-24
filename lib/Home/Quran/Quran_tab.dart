@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Quran/sura_name_item.dart';
-import 'package:islame_app/themeing.dart';
+import 'package:islame_app/Themeing/Themeing.dart';
 import 'divider_item_stayle.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
