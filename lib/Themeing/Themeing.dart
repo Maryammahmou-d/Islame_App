@@ -20,6 +20,7 @@ class MyThemeData {
       titleMedium: TextStyle(
           fontSize: 25, fontWeight: FontWeight.bold, color: BlackColor),
       titleLarge: TextStyle(fontSize: 30, color: BlackColor),
+      labelSmall: TextStyle(fontSize: 15, color: BlackColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: BlackColor,
@@ -40,5 +41,6 @@ class MyThemeData {
         titleMedium: TextStyle(
             fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
         titleLarge: TextStyle(fontSize: 35, color: Colors.white),
+        labelSmall: TextStyle(fontSize: 15, color: BlackColor),
       ));
 }

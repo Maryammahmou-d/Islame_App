@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../themeing.dart';
+import '../../Themeing/Themeing.dart';
 
 class DividerItemStayle extends StatelessWidget {
   const DividerItemStayle({super.key});

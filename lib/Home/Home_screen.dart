@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Ahadeth/Ahadeth_tab.dart';
 import 'package:islame_app/Home/Quran/Quran_tab.dart';
-import 'package:islame_app/Home/Radio_tab.dart';
-import 'package:islame_app/Home/Sabha_tab.dart';
-import 'package:islame_app/themeing.dart';
+import 'package:islame_app/Home/radio/Radio_tab.dart';
+import 'package:islame_app/Home/sebha/Sabha_tab.dart';
+import 'package:islame_app/Themeing/Themeing.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'Settings/Settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "Home Screen";
@@ -21,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     SabhaTab(),
     AhadethTab(),
     QuranTab(),
+    SettingsTab(),
   ];
 
   @override
@@ -75,6 +78,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       size: 30,
                     ),
                     label: AppLocalizations.of(context)!.quran_nav),
+                BottomNavigationBarItem(
+                  backgroundColor: MyThemeData.GoldColor,
+                  icon: Icon(
+                    Icons.settings,
+                    size: 25,
+                  ),
+                  label: AppLocalizations.of(context)!.settings_nav,
+                )
               ]),
         ),
       ],

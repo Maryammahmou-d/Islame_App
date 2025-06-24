@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Home_screen.dart';
-import 'package:islame_app/Sura_Details/sura_details.dart';
-import 'package:islame_app/themeing.dart';
+import 'package:islame_app/Provider/my_provider.dart';
+import 'package:islame_app/Themeing/themeing.dart';
+import 'package:provider/provider.dart';
 import 'Home/Ahadeth/hadeth_details.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'Home/Sura_Details/sura_details.dart';
+
 void main() {
-  runApp(IslameApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) {
+        return MyProvider();
+      },
+      child: IslameApp()));
 }
 
 class IslameApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
+
     // TODO: implement build
     return MaterialApp(
       localizationsDelegates: [
@@ -25,7 +34,7 @@ class IslameApp extends StatelessWidget {
         Locale('en'), // English
         Locale('ar'), // arabic
       ],
-      /*locale: Locale("ar"),*/
+      locale: Locale(provider.languageCode),
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {
