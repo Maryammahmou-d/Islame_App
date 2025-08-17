@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Settings/language_bottom_sheet.dart';
-import 'package:islame_app/Provider/my_provider.dart';
+import 'package:islame_app/Provider/Language_Provider.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,7 +10,7 @@ class SettingsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProvider>(context);
+    var provider = Provider.of<LanguageProvider>(context);
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),

@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:islame_app/Provider/my_provider.dart';
+import 'package:islame_app/Provider/Language_Provider.dart';
 import 'package:provider/provider.dart';
 
 class LanguageBottomSheet extends StatelessWidget {
@@ -9,7 +9,7 @@ class LanguageBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProvider>(context);
+    var provider = Provider.of<LanguageProvider>(context);
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       // height: MediaQuery.of(context).size.height * 0.5,

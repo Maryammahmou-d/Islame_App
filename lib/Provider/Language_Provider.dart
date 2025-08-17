@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
 
-class MyProvider extends ChangeNotifier {
+class LanguageProvider extends ChangeNotifier {
   String languageCode = "en";
 
   void changeLanguage(String languageCode) {

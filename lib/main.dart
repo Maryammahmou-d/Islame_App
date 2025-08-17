@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Home_screen.dart';
-import 'package:islame_app/Provider/my_provider.dart';
 import 'package:islame_app/Themeing/themeing.dart';
 import 'package:provider/provider.dart';
 import 'Home/Ahadeth/hadeth_details.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'Home/Sura_Details/sura_details.dart';
+import 'Provider/Language_Provider.dart';
 
 void main() {
+  Provider.debugCheckInvalidValueType = null;
   runApp(ChangeNotifierProvider(
-      create: (context) {
-        return MyProvider();
-      },
-      child: IslameApp()));
+    create: (context) => LanguageProvider(),
+    child: IslameApp(),
+  ));
 }
 
 class IslameApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProvider>(context);
+    var provider = Provider.of<LanguageProvider>(context);
 
     // TODO: implement build
     return MaterialApp(
