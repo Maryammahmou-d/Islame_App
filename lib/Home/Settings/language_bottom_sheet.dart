@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:islame_app/Provider/Language_Provider.dart';
 import 'package:provider/provider.dart';

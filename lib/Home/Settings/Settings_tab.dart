@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Settings/language_bottom_sheet.dart';
+import 'package:islame_app/Home/Settings/theme_bottom_Sheet.dart';
 import 'package:islame_app/Provider/Language_Provider.dart';
+import 'package:islame_app/Provider/theme_mode_provider.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,6 +13,7 @@ class SettingsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<LanguageProvider>(context);
+    var modeProvider = Provider.of<ThemeModeProvider>(context);
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -56,7 +59,9 @@ class SettingsTab extends StatelessWidget {
             height: 10,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              showThemeModeBottomSheet(context);
+            },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               decoration: BoxDecoration(
@@ -66,7 +71,7 @@ class SettingsTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
-                "Light",
+                modeProvider.modeCode,
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),
@@ -81,6 +86,15 @@ class SettingsTab extends StatelessWidget {
       context: context,
       builder: (context) {
         return LanguageBottomSheet();
+      },
+    );
+  }
+
+  void showThemeModeBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return ThemeModeBottomSheet();
       },
     );
   }

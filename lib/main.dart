@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Home_screen.dart';
+import 'package:islame_app/Provider/theme_mode_provider.dart';
 import 'package:islame_app/Themeing/themeing.dart';
 import 'package:provider/provider.dart';
 import 'Home/Ahadeth/hadeth_details.dart';
@@ -10,8 +11,11 @@ import 'Provider/Language_Provider.dart';
 
 void main() {
   Provider.debugCheckInvalidValueType = null;
-  runApp(ChangeNotifierProvider(
-    create: (context) => LanguageProvider(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => LanguageProvider()),
+      ChangeNotifierProvider(create: (context) => ThemeModeProvider()),
+    ],
     child: IslameApp(),
   ));
 }
@@ -20,7 +24,7 @@ class IslameApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<LanguageProvider>(context);
-
+    var modeProvider = Provider.of<ThemeModeProvider>(context);
     // TODO: implement build
     return MaterialApp(
       localizationsDelegates: [
@@ -43,7 +47,7 @@ class IslameApp extends StatelessWidget {
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: modeProvider.mode,
     );
   }
 }
