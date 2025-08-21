@@ -6,7 +6,9 @@ import 'package:islame_app/Home/sebha/Sabha_tab.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
+import '../Provider/theme_mode_provider.dart';
 import 'Settings/Settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,13 +30,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ThemeModeProvider>(context);
     return Stack(
       children: [
-        Image.asset(
-          "assets/images/default_bg.png",
-          fit: BoxFit.fitWidth,
-          width: double.infinity,
-        ),
+        provider.mode == ThemeMode.light
+            ? Image.asset(
+                "assets/images/default_bg.png",
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+              )
+            : Image.asset(
+                "assets/images/dark_bg.png",
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+              ),
         Scaffold(
           appBar: AppBar(
             title: Text(
@@ -51,35 +60,45 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               items: [
                 BottomNavigationBarItem(
-                    backgroundColor: MyThemeData.GoldColor,
+                    backgroundColor: provider.mode == ThemeMode.light
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.primary,
                     icon: ImageIcon(
                       AssetImage('assets/icon_images/icon_radio.png'),
                       size: 30,
                     ),
                     label: AppLocalizations.of(context)!.radio_nav),
                 BottomNavigationBarItem(
-                    backgroundColor: MyThemeData.GoldColor,
+                    backgroundColor: provider.mode == ThemeMode.light
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.primary,
                     icon: ImageIcon(
                       AssetImage('assets/icon_images/icon_sebha.png'),
                       size: 30,
                     ),
                     label: AppLocalizations.of(context)!.sebha_nav),
                 BottomNavigationBarItem(
-                    backgroundColor: MyThemeData.GoldColor,
+                    backgroundColor: provider.mode == ThemeMode.light
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.primary,
                     icon: ImageIcon(
                       AssetImage('assets/icon_images/icon_hadeth.png'),
                       size: 30,
                     ),
                     label: AppLocalizations.of(context)!.ahadeth_nav),
                 BottomNavigationBarItem(
-                    backgroundColor: MyThemeData.GoldColor,
+                    backgroundColor: provider.mode == ThemeMode.light
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.primary,
                     icon: ImageIcon(
                       AssetImage('assets/icon_images/icon_quran.png'),
                       size: 30,
                     ),
                     label: AppLocalizations.of(context)!.quran_nav),
                 BottomNavigationBarItem(
-                  backgroundColor: MyThemeData.GoldColor,
+                  backgroundColor: provider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.primary,
                   icon: Icon(
                     Icons.settings,
                     size: 25,

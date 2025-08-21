@@ -3,7 +3,6 @@ import 'package:islame_app/Home/Settings/language_bottom_sheet.dart';
 import 'package:islame_app/Home/Settings/theme_bottom_Sheet.dart';
 import 'package:islame_app/Provider/Language_Provider.dart';
 import 'package:islame_app/Provider/theme_mode_provider.dart';
-import 'package:islame_app/Themeing/Themeing.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -38,13 +37,18 @@ class SettingsTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: MyThemeData.GoldColor,
+                  color: modeProvider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.secondary,
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
                 provider.languageCode == "en" ? "English" : "Arabic",
-                style: Theme.of(context).textTheme.labelSmall,
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                    color: modeProvider.mode == ThemeMode.light
+                        ? Theme.of(context).colorScheme.secondary
+                        : Theme.of(context).colorScheme.onPrimary),
               ),
             ),
           ),
@@ -66,13 +70,19 @@ class SettingsTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: MyThemeData.GoldColor,
+                  color: modeProvider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.secondary,
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
                 modeProvider.modeCode,
-                style: Theme.of(context).textTheme.labelSmall,
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                      color: modeProvider.mode == ThemeMode.light
+                          ? Theme.of(context).colorScheme.secondary
+                          : Theme.of(context).colorScheme.onSecondary,
+                    ),
               ),
             ),
           ),

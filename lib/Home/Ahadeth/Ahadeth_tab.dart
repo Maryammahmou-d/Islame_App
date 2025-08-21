@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islame_app/Provider/theme_mode_provider.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
+import 'package:provider/provider.dart';
 import '../Quran/divider_item_stayle.dart';
 import 'hadeth_details.dart';
 
@@ -19,14 +21,16 @@ class _AhadethTabState extends State<AhadethTab> {
     if (Ahadeth.isEmpty) {
       LoadHadethFile();
     }
+    var provider = Provider.of<ThemeModeProvider>(context);
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       Center(child: Image.asset("assets/images/hadeth_logo.png")),
       Text(
         AppLocalizations.of(context)!.hadeth_name,
-        style: Theme.of(context)
-            .textTheme
-            .titleMedium
-            ?.copyWith(color: MyThemeData.GoldColor),
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: provider.mode == ThemeMode.light
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.secondary,
+            ),
         textAlign: TextAlign.center,
       ),
       Expanded(

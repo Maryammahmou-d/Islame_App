@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../../Provider/theme_mode_provider.dart';
 
 class SabhaTab extends StatefulWidget {
   @override
@@ -20,6 +23,7 @@ class _SabhaTabState extends State<SabhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ThemeModeProvider>(context);
     return Center(
       child: Column(
         children: [
@@ -48,7 +52,9 @@ class _SabhaTabState extends State<SabhaTab> {
             width: 70,
             height: 80,
             decoration: BoxDecoration(
-              color: MyThemeData.GoldColor,
+              color: provider.mode == ThemeMode.light
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.primary,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
@@ -64,8 +70,14 @@ class _SabhaTabState extends State<SabhaTab> {
           SizedBox.fromSize(size: Size(0, 20)),
           Container(
             decoration: BoxDecoration(
-                border: Border.all(color: MyThemeData.GoldColor),
-                color: Color.fromRGBO(255, 255, 255, 100),
+                border: Border.all(
+                  color: provider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.secondary,
+                ),
+                color: provider.mode == ThemeMode.light
+                    ? Theme.of(context).colorScheme.surface
+                    : Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(20)),
             child: DropdownButton(
                 hint: Text("الاذكار"),

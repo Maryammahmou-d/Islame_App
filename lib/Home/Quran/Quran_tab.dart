@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islame_app/Home/Quran/sura_name_item.dart';
+import 'package:islame_app/Provider/theme_mode_provider.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
+import 'package:provider/provider.dart';
 import 'divider_item_stayle.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -125,6 +127,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ThemeModeProvider>(context);
     return Container(
       width: double.infinity,
       child: Column(
@@ -132,10 +135,11 @@ class QuranTab extends StatelessWidget {
           Image.asset("assets/images/qur2an_screen_logo.png"),
           Text(
             AppLocalizations.of(context)!.sura_name,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(color: MyThemeData.GoldColor),
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: provider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.secondary,
+                ),
           ),
           Expanded(
               child: ListView.separated(

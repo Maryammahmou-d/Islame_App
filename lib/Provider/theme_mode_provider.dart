@@ -12,10 +12,14 @@ class ThemeModeProvider extends ChangeNotifier {
 
   Color selectionColor(ThemeMode mode) {
     if (this.mode == mode) {
-      mode == ThemeMode.light ? modeCode = "Light" : modeCode = "Dark";
-      return MyThemeData.GoldColor;
-    } else {
-      return MyThemeData.BlackColor;
+      if (mode == ThemeMode.light) {
+        modeCode = "Light";
+        return MyThemeData.GoldColor;
+      } else {
+        modeCode = "Dark";
+        return MyThemeData.YellowColor;
+      }
     }
+    return MyThemeData.BlackColor;
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islame_app/Provider/theme_mode_provider.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
+import 'package:provider/provider.dart';
 import '../Quran/divider_item_stayle.dart';
 import 'Ahadeth_tab.dart';
 
@@ -13,13 +15,21 @@ class HadethDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     var hadethDetails =
         ModalRoute.of(context)?.settings.arguments as HadethData;
+
+    var provider = Provider.of<ThemeModeProvider>(context);
     return Stack(
       children: [
-        Image.asset(
-          "assets/images/default_bg.png",
-          fit: BoxFit.fitWidth,
-          width: double.infinity,
-        ),
+        provider.mode == ThemeMode.light
+            ? Image.asset(
+                "assets/images/default_bg.png",
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+              )
+            : Image.asset(
+                "assets/images/dark_bg.png",
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+              ),
         Scaffold(
           appBar: AppBar(
             title: Text(
@@ -34,7 +44,9 @@ class HadethDetails extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Color.fromRGBO(250, 250, 250, 100),
                 border: Border.all(
-                  color: MyThemeData.GoldColor,
+                  color: provider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.secondary,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(60),
@@ -43,7 +55,11 @@ class HadethDetails extends StatelessWidget {
                 children: [
                   Text(
                     hadethDetails.title,
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: provider.mode == ThemeMode.light
+                              ? Theme.of(context).colorScheme.secondary
+                              : Theme.of(context).colorScheme.secondary,
+                        ),
                     textAlign: TextAlign.center,
                   ),
                   DividerItemStayle(),
@@ -53,7 +69,14 @@ class HadethDetails extends StatelessWidget {
                         itemBuilder: (_, index) {
                           return Text(
                             hadethDetails.content[index],
-                            style: Theme.of(context).textTheme.titleSmall,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(
+                                  color: provider.mode == ThemeMode.light
+                                      ? Theme.of(context).colorScheme.secondary
+                                      : Theme.of(context).colorScheme.secondary,
+                                ),
                             textAlign: TextAlign.right,
                           );
                         }),
