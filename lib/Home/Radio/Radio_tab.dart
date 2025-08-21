@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:islame_app/Themeing/Themeing.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../../Provider/theme_mode_provider.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ThemeModeProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -24,17 +28,23 @@ class RadioTab extends StatelessWidget {
             Icon(
               Icons.skip_next,
               size: 60,
-              color: MyThemeData.GoldColor,
+              color: provider.mode == ThemeMode.light
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.secondary,
             ),
             Icon(
               Icons.play_arrow,
               size: 80,
-              color: MyThemeData.GoldColor,
+              color: provider.mode == ThemeMode.light
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.secondary,
             ),
             Icon(
               Icons.skip_previous,
               size: 60,
-              color: MyThemeData.GoldColor,
+              color: provider.mode == ThemeMode.light
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.secondary,
             ),
           ],
         )

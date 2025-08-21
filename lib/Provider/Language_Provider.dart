@@ -9,9 +9,15 @@ class LanguageProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Color selectedColor(String languageCode) {
-    return this.languageCode == languageCode
-        ? MyThemeData.GoldColor
-        : MyThemeData.BlackColor;
+  Color selectedColor(String languageCode, ThemeMode mode) {
+    if (this.languageCode == languageCode) {
+      if (mode == ThemeMode.light) {
+        return MyThemeData.GoldColor;
+      } else {
+        return MyThemeData.YellowColor;
+      }
+    } else {
+      return MyThemeData.BlackColor;
+    }
   }
 }
