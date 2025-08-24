@@ -33,17 +33,11 @@ class _HomeScreenState extends State<HomeScreen> {
     var provider = Provider.of<ThemeModeProvider>(context);
     return Stack(
       children: [
-        provider.mode == ThemeMode.light
-            ? Image.asset(
-                "assets/images/default_bg.png",
-                fit: BoxFit.fitWidth,
-                width: double.infinity,
-              )
-            : Image.asset(
-                "assets/images/dark_bg.png",
-                fit: BoxFit.fitWidth,
-                width: double.infinity,
-              ),
+        Image.asset(
+          provider.changeBackground(),
+          fit: BoxFit.fitWidth,
+          width: double.infinity,
+        ),
         Scaffold(
           appBar: AppBar(
             title: Text(

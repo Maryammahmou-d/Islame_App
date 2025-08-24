@@ -25,94 +25,96 @@ class _SabhaTabState extends State<SabhaTab> {
   Widget build(BuildContext context) {
     var provider = Provider.of<ThemeModeProvider>(context);
     return Center(
-      child: Column(
-        children: [
-          InkWell(
-              onTap: () {
-                Counter++;
-                if (Counter == 30) {
-                  index++;
-                  Counter = 0;
-                  if (index == sebha.length) {
-                    index = 0;
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            InkWell(
+                onTap: () {
+                  Counter++;
+                  if (Counter == 30) {
+                    index++;
                     Counter = 0;
+                    if (index == sebha.length) {
+                      index = 0;
+                      Counter = 0;
+                    }
                   }
-                }
-                setState(() {});
-              },
-              child: Image.asset("assets/images/sebha_icon.png")),
-          SizedBox.fromSize(size: Size(0, 50)),
-          Text(
-            AppLocalizations.of(context)!.sebha_num,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          SizedBox.fromSize(size: Size(0, 20)),
-          Container(
-            alignment: Alignment.center,
-            width: 70,
-            height: 80,
-            decoration: BoxDecoration(
-              color: provider.mode == ThemeMode.light
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.primary,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              "${Counter}",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-          ),
-          SizedBox.fromSize(size: Size(0, 20)),
-          Text(
-            "${sebha[index]}",
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          SizedBox.fromSize(size: Size(0, 20)),
-          Container(
-            decoration: BoxDecoration(
-                border: Border.all(
-                  color: provider.mode == ThemeMode.light
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.secondary,
-                ),
-                color: provider.mode == ThemeMode.light
-                    ? Theme.of(context).colorScheme.surface
-                    : Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(20)),
-            child: DropdownButton(
-                hint: Text("الاذكار"),
-                alignment: Alignment.center,
-                borderRadius: BorderRadius.circular(40),
-                style: Theme.of(context).textTheme.titleSmall,
-                items: [
-                  DropdownMenuItem(
-                    child: Text("الله اكبر"),
-                    value: 0,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("سبحان الله"),
-                    value: 1,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("استغفر الله"),
-                    value: 2,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("لا اله الا الله"),
-                    value: 3,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("الحمد الله"),
-                    value: 4,
-                  ),
-                ],
-                onChanged: (value) {
-                  index = value!;
-                  Counter = 0;
                   setState(() {});
-                }),
-          )
-        ],
+                },
+                child: Image.asset("assets/images/sebha_icon.png")),
+            SizedBox.fromSize(size: Size(0, 50)),
+            Text(
+              AppLocalizations.of(context)!.sebha_num,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            SizedBox.fromSize(size: Size(0, 20)),
+            Container(
+              alignment: Alignment.center,
+              width: 70,
+              height: 80,
+              decoration: BoxDecoration(
+                color: provider.mode == ThemeMode.light
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                "${Counter}",
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
+            SizedBox.fromSize(size: Size(0, 20)),
+            Text(
+              "${sebha[index]}",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            SizedBox.fromSize(size: Size(0, 20)),
+            Container(
+              decoration: BoxDecoration(
+                  border: Border.all(
+                    color: provider.mode == ThemeMode.light
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.secondary,
+                  ),
+                  color: provider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.surface
+                      : Theme.of(context).colorScheme.secondary,
+                  borderRadius: BorderRadius.circular(20)),
+              child: DropdownButton(
+                  hint: Text("الاذكار"),
+                  alignment: Alignment.center,
+                  borderRadius: BorderRadius.circular(40),
+                  style: Theme.of(context).textTheme.titleSmall,
+                  items: [
+                    DropdownMenuItem(
+                      child: Text("الله اكبر"),
+                      value: 0,
+                    ),
+                    DropdownMenuItem(
+                      child: Text("سبحان الله"),
+                      value: 1,
+                    ),
+                    DropdownMenuItem(
+                      child: Text("استغفر الله"),
+                      value: 2,
+                    ),
+                    DropdownMenuItem(
+                      child: Text("لا اله الا الله"),
+                      value: 3,
+                    ),
+                    DropdownMenuItem(
+                      child: Text("الحمد الله"),
+                      value: 4,
+                    ),
+                  ],
+                  onChanged: (value) {
+                    index = value!;
+                    Counter = 0;
+                    setState(() {});
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }

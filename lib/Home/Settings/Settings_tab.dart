@@ -24,7 +24,11 @@ class SettingsTab extends StatelessWidget {
           ),
           Text(
             AppLocalizations.of(context)!.language,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: modeProvider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.secondary
+                      : Theme.of(context).colorScheme.secondary,
+                ),
           ),
           SizedBox(
             height: 10,
@@ -57,7 +61,11 @@ class SettingsTab extends StatelessWidget {
           ),
           Text(
             AppLocalizations.of(context)!.mode,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: modeProvider.mode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.secondary
+                      : Theme.of(context).colorScheme.secondary,
+                ),
           ),
           SizedBox(
             height: 10,

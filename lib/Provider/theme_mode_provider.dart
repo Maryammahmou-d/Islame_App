@@ -22,4 +22,12 @@ class ThemeModeProvider extends ChangeNotifier {
     }
     return MyThemeData.BlackColor;
   }
+
+  String changeBackground() {
+    if (mode == ThemeMode.light) {
+      return "assets/images/default_bg.png";
+    } else {
+      return "assets/images/dark_bg.png";
+    }
+  }
 }
