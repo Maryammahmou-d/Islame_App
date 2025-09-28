@@ -3,7 +3,6 @@ import '../Themeing/Themeing.dart';
 
 class ThemeModeProvider extends ChangeNotifier {
   ThemeMode mode = ThemeMode.light;
-  String modeCode = "Light";
 
   void changeThemeMode(ThemeMode newMode) {
     mode = newMode;
@@ -13,10 +12,8 @@ class ThemeModeProvider extends ChangeNotifier {
   Color selectionColor(ThemeMode mode) {
     if (this.mode == mode) {
       if (mode == ThemeMode.light) {
-        modeCode = "Light";
         return MyThemeData.GoldColor;
       } else {
-        modeCode = "Dark";
         return MyThemeData.YellowColor;
       }
     }

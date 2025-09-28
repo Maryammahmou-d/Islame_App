@@ -83,7 +83,7 @@ class SettingsTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
-                modeProvider.modeCode,
+                modeProvider.mode == ThemeMode.light ? "Light" : "Dark",
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       color: modeProvider.mode == ThemeMode.light
                           ? Theme.of(context).colorScheme.secondary
