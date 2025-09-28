@@ -127,7 +127,6 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ThemeModeProvider>(context);
     return Container(
       width: double.infinity,
       child: Column(
@@ -136,9 +135,7 @@ class QuranTab extends StatelessWidget {
           Text(
             AppLocalizations.of(context)!.sura_name,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: provider.mode == ThemeMode.light
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.secondary,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
           ),
           Expanded(

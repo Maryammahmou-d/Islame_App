@@ -40,6 +40,7 @@ class MyThemeData {
       labelSmall: TextStyle(fontSize: 15, color: BlackColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: GoldColor,
       selectedItemColor: BlackColor,
       unselectedItemColor: WhiteColor,
     ),
@@ -75,7 +76,7 @@ class MyThemeData {
       labelSmall: TextStyle(fontSize: 15, color: BlackColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: YellowColor,
+      backgroundColor: BlueColor,
       selectedItemColor: YellowColor,
       unselectedItemColor: WhiteColor,
     ),

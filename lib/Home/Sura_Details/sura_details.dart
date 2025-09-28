@@ -52,9 +52,7 @@ class SuraDetailsScreen extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                     decoration: BoxDecoration(
                       border: Border.all(
-                          color: modeProvider.mode == ThemeMode.light
-                              ? Theme.of(context).colorScheme.primary
-                              : Theme.of(context).colorScheme.secondary,
+                          color: Theme.of(context).colorScheme.secondary,
                           width: 2),
                       borderRadius: BorderRadius.circular(60),
                       color: Color.fromRGBO(255, 255, 255, 100),
@@ -67,9 +65,7 @@ class SuraDetailsScreen extends StatelessWidget {
                               .textTheme
                               .titleSmall!
                               .copyWith(
-                                color: modeProvider.mode == ThemeMode.light
-                                    ? Theme.of(context).colorScheme.secondary
-                                    : Theme.of(context).colorScheme.secondary,
+                            color: Theme.of(context).colorScheme.secondary,
                               ),
                         ),
                         DividerItemStayle(),
@@ -86,14 +82,9 @@ class SuraDetailsScreen extends StatelessWidget {
                                             .titleSmall
                                             ?.copyWith(
                                               fontSize: 20,
-                                              color: modeProvider.mode ==
-                                                      ThemeMode.light
-                                                  ? Theme.of(context)
-                                                      .colorScheme
-                                                      .secondary
-                                                  : Theme.of(context)
-                                                      .colorScheme
-                                                      .secondary,
+                                          color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
                                             ),
                                         textAlign: TextAlign.right,
                                       );

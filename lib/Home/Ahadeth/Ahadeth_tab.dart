@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islame_app/Provider/ahadeth_provider.dart';
-import 'package:islame_app/Provider/theme_mode_provider.dart';
 import 'package:provider/provider.dart';
 import '../Quran/divider_item_stayle.dart';
 import 'hadeth_details.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatefulWidget {
   @override
   State<AhadethTab> createState() => _AhadethTabState();
 }
-
 class _AhadethTabState extends State<AhadethTab> {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ThemeModeProvider>(context);
     return ChangeNotifierProvider(
       create: (context) => AhadethProvider()..LoadHadethFile(),
       builder: (context, widget) {
@@ -28,9 +24,7 @@ class _AhadethTabState extends State<AhadethTab> {
               Text(
                 AppLocalizations.of(context)!.hadeth_name,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: provider.mode == ThemeMode.light
-                          ? Theme.of(context).colorScheme.primary
-                          : Theme.of(context).colorScheme.secondary,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                 textAlign: TextAlign.center,
               ),

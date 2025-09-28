@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islame_app/Provider/theme_mode_provider.dart';
-import 'package:islame_app/Themeing/Themeing.dart';
 import 'package:provider/provider.dart';
 import '../Quran/divider_item_stayle.dart';
 import 'Ahadeth_tab.dart';
@@ -44,9 +43,7 @@ class HadethDetails extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Color.fromRGBO(250, 250, 250, 100),
                 border: Border.all(
-                  color: provider.mode == ThemeMode.light
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.secondary,
+                  color: Theme.of(context).colorScheme.secondary,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(60),
@@ -56,9 +53,7 @@ class HadethDetails extends StatelessWidget {
                   Text(
                     hadethDetails.title,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: provider.mode == ThemeMode.light
-                              ? Theme.of(context).colorScheme.secondary
-                              : Theme.of(context).colorScheme.secondary,
+                      color: Theme.of(context).colorScheme.secondary,
                         ),
                     textAlign: TextAlign.center,
                   ),
@@ -73,9 +68,8 @@ class HadethDetails extends StatelessWidget {
                                 .textTheme
                                 .titleSmall!
                                 .copyWith(
-                                  color: provider.mode == ThemeMode.light
-                                      ? Theme.of(context).colorScheme.secondary
-                                      : Theme.of(context).colorScheme.secondary,
+                              color:
+                                      Theme.of(context).colorScheme.secondary,
                                 ),
                             textAlign: TextAlign.right,
                           );
